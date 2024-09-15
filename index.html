@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire Nancy Rose</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffeb3b;
+            font-family: 'Raleway', sans-serif;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            background-color: #00bcd4;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .heart {
+            animation: heartBeat 2s infinite;
+            font-size: 50px;
+            color: #ff4081;
+        }
+
+        @keyframes heartBeat {
+            0%, 20%, 50%, 80%, 100% {
+                transform: scale(1);
+            }
+            40% {
+                transform: scale(1.3);
+            }
+            60% {
+                transform: scale(1.1);
+            }
+        }
+
+        .btn-love {
+            background-color: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            animation: bounceIn 1.5s ease-out;
+            cursor: pointer;
+        }
+
+        .btn-love:hover {
+            background-color: #ff69b4;
+            box-shadow: 0 0 15px #ff69b4;
+            transform: scale(1.1);
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            80% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .video-section {
+            text-align: center;
+            margin: 20px 0;
+            animation: fadeIn 2.5s ease-in-out;
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+        }
+
+        .video {
+            flex: 0 0 auto;
+            width: 100%;
+            scroll-snap-align: start;
+        }
+
+        .rose {
+            animation: rotateRose 10s infinite linear;
+            width: 100px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .rose:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px #ff4081;
+        }
+
+        @keyframes rotateRose {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .love-message {
+            font-size: 2.5rem;
+            color: #7b1fa2;
+            margin: 30px 0;
+            animation: fadeIn 3s ease-in-out;
+            text-shadow: 2px 2px #ff69b4;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .paroles {
+            font-size: 1.2rem;
+            color: #4caf50;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 80%;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .bg-confetti {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(to bottom, #ffeb3b 0%, #ffeb3b 60%, transparent 100%);
+        }
+
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #ff4081;
+            animation: fall 5s infinite ease-in;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+
+        .confetti:nth-child(odd) {
+            background-color: #ffeb3b;
+        }
+        .confetti:nth-child(3n) {
+            background-color: #00bcd4;
+        }
+
+        .petals {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('petal.svg') no-repeat center center;
+            background-size: cover;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(50vh) rotate(180deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .petal:nth-child(odd) {
+            left: 10%;
+        }
+
+        .petal:nth-child(2n) {
+            left: 30%;
+        }
+
+        .petal:nth-child(3n) {
+            left: 50%;
+        }
+
+        .petal:nth-child(4n) {
+            left: 70%;
+        }
+
+        .fireworks {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: url('fireworks.svg') no-repeat center center;
+            background-size: cover;
+            animation: explode 3s infinite ease-in-out;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+        .hearts, .wishes {
+            position: absolute;
+            font-size: 2rem;
+            color: #ff4081;
+            animation: float 5s infinite ease-in-out;
+        }
+
+        .hearts {
+            top: 20%;
+            left: 30%;
+        }
+
+        .wishes {
+            top: 50%;
+            left: 50%;
+        }
+
+        .fleurs-roses {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('fleur-rose.svg') no-repeat center center;
+            background-size: cover;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(50vh) rotate(180deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .fleurs-roses:nth-child(odd) {
+            left: 10%;
+        }
+
+        .fleurs-roses:nth-child(2n) {
+            left: 30%;
+        }
+
+        .fleurs-roses:nth-child(3n) {
+            left: 50%;
+        }
+
+        .fleurs-roses:nth-child(4n) {
+            left: 70%;
+        }
+
+        @media (max-width: 768px) {
+            .rose {
+                width: 80px;
+            }
+
+            .btn-love {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+
+            .video-section, .paroles, .love-message {
+                width: 90%;
+            }
+
+            .hearts, .wishes, .fleurs-roses {
+                font-size: 1.5rem;
+            }
+        }
+</style>
+<body>
+
+    <header class="header">
+        <h1>Joyeux Anniversaire Nancy Rose ❤️</h1>
+    </header>
+
+    <div class="bg-confetti">
+        <!-- Confetti -->
+        <div class="confetti" style="left: 5%;"></div>
+        <div class="confetti" style="left: 10%;"></div>
+        <div class="confetti" style="left: 15%;"></div>
+        <div class="confetti" style="left: 20%;"></div>
+        <div class="confetti" style="left: 25%;"></div>
+        <div class="confetti" style="left: 30%;"></div>
+        <div class="confetti" style="left: 35%;"></div>
+        <div class="confetti" style="left: 40%;"></div>
+        <div class="confetti" style="left: 45%;"></div>
+        <div class="confetti" style="left: 50%;"></div>
+        <div class="confetti" style="left: 55%;"></div>
+        <div class="confetti" style="left: 60%;"></div>
+        <div class="confetti" style="left: 65%;"></div>
+        <div class="confetti" style="left: 70%;"></div>
+        <div class="confetti" style="left: 75%;"></div>
+        <div class="confetti" style="left: 80%;"></div>
+        <div class="confetti" style="left: 85%;"></div>
+        <div class="confetti" style="left: 90%;"></div>
+        <div class="confetti" style="left: 95%;"></div>
+        <!-- Petals -->
+        <div class="petals" style="top: 10%;"></div>
+        <div class="petals" style="top: 20%;"></div>
+        <div class="petals" style="top: 30%;"></div>
+        <div class="petals" style="top: 40%;"></div>
+        <div class="petals" style="top: 50%;"></div>
+        <div class="petals" style="top: 60%;"></div>
+        <div class="petals" style="top: 70%;"></div>
+        <div class="petals" style="top: 80%;"></div>
+        <div class="petals" style="top: 90%;"></div>
+        <!-- Fleurs roses -->
+        <div class="fleurs-roses" style="top: 10%; left: 20%;"></div>
+        <div class="fleurs-roses" style="top: 20%; left: 40%;"></div>
+        <div class="fleurs-roses" style="top: 30%; left: 60%;"></div>
+        <div class="fleurs-roses" style="top: 40%; left: 80%;"></div>
+        <!-- Fireworks -->
+        <div class="fireworks" style="top: 5%; left: 10%;"></div>
+        <div class="fireworks" style="top: 15%; left: 30%;"></div>
+        <div class="fireworks" style="top: 25%; left: 50%;"></div>
+        <div class="fireworks" style="top: 35%; left: 70%;"></div>
+        <div class="fireworks" style="top: 45%; left: 90%;"></div>
+        <!-- Hearts and Wishes -->
+        <div class="hearts">❤️❤️❤️❤️❤️</div>
+        <div class="wishes">Bon anniversaire ! 🎉</div>
+    </div>
+
+    <section class="video-section text-center">
+        <div class="video-container mx-auto my-4 flex flex-col items-center justify-center">
+            <div class="video-wrap flex overflow-x-auto">
+                <video id="video1" controls autoplay class="video w-full mx-2" width="3840" height="2160">
+                    <source src="Nancy Rose, Ma Lumière.mp4" type="video/mp4">
+                    Ton navigateur ne supporte pas la vidéo.
+                </video>
+                <video id="video2" controls autoplay class="video w-full mx-2" width="3840" height="2160">
+                    <source src="WhatsApp Video 2024-09-15 at 08.40.18.mp4" type="video/mp4">
+                    Ton navigateur ne supporte pas la vidéo.
+                </video>
+                <video id="video3" controls autoplay class="video w-full mx-2" width="3840" height="2160">
+                    <source src="WhatsApp Video 2024-09-15 at 08.45.52.mp4" type="video/mp4">
+                    Ton navigateur ne supporte pas la vidéo.
+                </video>
+            </div>
+            <div class="video-controls mt-4 flex justify-center">
+                <button id="previous-video" onclick="previousVideo()" class="mr-4">Précédent</button>
+                <button id="next-video" onclick="nextVideo()" class="ml-4">Suivant</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="text-center">
+        <h2 class="love-message">"Nancy Rose, chaque jour avec toi est un cadeau, mais aujourd'hui est un jour spécial. Que cet anniversaire te rappelle à quel point tu es aimée. 💖"</h2>
+        <button class="btn-love">Je t'aime !</button>
+    </section>
+
+    <section class="paroles">
+        <h2>Paroles d'amour :</h2>
+        <p>
+            "Tu es le rayon de soleil qui illumine mes journées,<br>
+            La rose qui parfume mes rêves,<br>
+            Aujourd'hui, je veux te dire combien je suis chanceux(se) de t'avoir à mes côtés.<br>
+            Joyeux anniversaire mon amour, que cette année t'apporte autant de bonheur que tu m'en donnes chaque jour. 🌹"
+        </p>
+    </section>
+    <section class="mt-10 text-center">
+        <h2 class="text-3xl">Des souvenirs inoubliables</h2>
+        <div class="flex flex-wrap justify-center mt-4 space-x-4 space-y-4">
+            <!-- Adding images in 4K or 5K resolution -->
+            <img src="WhatsApp Image 2024-09-15 at 08.38.56.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.38.57 (1).jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.38.57.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.38.58.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.39.28 (1).jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.39.28.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.48 (1).jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.48.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.49 (1).jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.49.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.50 (1).jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.50.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.51 (1).jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.51.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.52 (1).jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.52.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.53 (1).jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.53.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.54 (1).jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.54.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <!-- Add more images as needed -->
+            <img src="WhatsApp Image 2024-09-15 at 08.45.55 (1).jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.55.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.56 (1).jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.56.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.57 (1).jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.57.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.58.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.45.59.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.46.00 (1).jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.46.00.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+            <img src="WhatsApp Image 2024-09-15 at 08.46.01.jpeg" alt="Rose" class="rose" width="3840" height="2160">
+        </div>
+    </section>
+
+    <footer class="text-center mt-10">
+        <p>Créé avec amour, spécialement pour toi, Nancy Rose 🌹</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".btn-love").click(function(){
+                alert("Je t'aime très fort, Nancy Rose ! 💖");
+            });
+
+            // Animation des confettis améliorée
+            const numConfetti = 50; // Augmentation du nombre de confettis
+            for (let i = 0; i < numConfetti; i++) {
+                let confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = Math.random() * 100 + '%';
+                confetti.style.animationDuration = Math.random() * 5 + 's'; // Ajout d'une durée d'animation aléatoire
+                document.querySelector('.bg-confetti').appendChild(confetti);
+            }
+
+            // Animation des pétales améliorée
+            const numPetals = 50; // Augmentation du nombre de pétales
+            for (let i = 0; i < numPetals; i++) {
+                let petal = document.createElement('div');
+                petal.classList.add('petals');
+                petal.style.left = Math.random() * 100 + '%';
+                petal.style.top = Math.random() * 100 + '%';
+                petal.style.animationDuration = Math.random() * 5 + 's'; // Ajout d'une durée d'animation aléatoire
+                document.querySelector('.bg-confetti').appendChild(petal);
+            }
+
+            // Animation des feux d'artifice améliorée
+            const numFireworks = 10; // Augmentation du nombre de feux d'artifice
+            for (let i = 0; i < numFireworks; i++) {
+                let firework = document.createElement('div');
+                firework.classList.add('fireworks');
+                firework.style.left = Math.random() * 100 + '%';
+                firework.style.top = Math.random() * 100 + '%';
+                firework.style.animationDuration = Math.random() * 5 + 's'; // Ajout d'une durée d'animation aléatoire
+                document.querySelector('.bg-confetti').appendChild(firework);
+            }
+
+            // Animation des roses améliorée
+            const numRoses = 20; // Augmentation du nombre de roses
+            for (let i = 0; i < numRoses; i++) {
+                let rose = document.createElement('div');
+                rose.classList.add('rose');
+                rose.style.left = Math.random() * 100 + '%';
+                rose.style.top = Math.random() * 100 + '%';
+                rose.style.animationDuration = Math.random() * 5 + 's'; // Ajout d'une durée d'animation aléatoire
+                document.querySelector('.bg-confetti').appendChild(rose);
+            }
+
+            // Lecture automatique de la vidéo améliorée
+            const video = document.getElementById('video');
+            video.addEventListener('ended', function() {
+                this.play();
+                // Ajout d'un message après chaque fin de vidéo
+                alert("La vidéo s'est terminée. Elle redémarre automatiquement pour votre plaisir.");
+            });
+        });
+    </script>
+</body>
+</html>
